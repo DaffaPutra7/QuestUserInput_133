@@ -32,11 +32,11 @@ fun LatihanInput(modifier: Modifier = Modifier){
     var gender by remember { mutableStateOf("") }
 
     var dataGender = listOf("laki laki", "perempuan")
-    var confNama by remember { mutableStateOf("") }
-    var confEmail by remember { mutableStateOf("") }
-    var confAlamat by remember { mutableStateOf("") }
-    var confNotelepon by remember { mutableStateOf("") }
-    var confGender by remember { mutableStateOf("") }
+    var confirmasiNama by remember { mutableStateOf("") }
+    var confirmasiEmail by remember { mutableStateOf("") }
+    var confirmasiAlamat by remember { mutableStateOf("") }
+    var confirmasiNotelepon by remember { mutableStateOf("") }
+    var confirmasiGender by remember { mutableStateOf("") }
 
     Column (
         modifier = modifier.fillMaxSize().padding(16.dp),
@@ -46,12 +46,12 @@ fun LatihanInput(modifier: Modifier = Modifier){
             value = nama,
             onValueChange = {nama = it},
             label = {
-                Text(text = "nama")
+                Text(text = "Nama")
             },
             placeholder = {
-                Text(text = "isi nama anda")
+                Text(text = "Isi Nama Anda")
             },
-            modifier = modifier.fillMaxWidth().padding(5.dp)
+            modifier = Modifier.fillMaxWidth().padding(5.dp),
         )
         Row (modifier = Modifier.fillMaxWidth()){
             dataGender.forEach{selectedGender->
@@ -67,65 +67,65 @@ fun LatihanInput(modifier: Modifier = Modifier){
             value = email,
             onValueChange = {email = it},
             label = {
-                Text(text = "email")
+                Text(text = "Email")
             },
             placeholder = {
-                Text(text = "isi email anda")
+                Text(text = "Isi Email Anda")
             },
-            modifier = modifier.fillMaxWidth().padding(5.dp),
+            modifier = Modifier.fillMaxWidth().padding(5.dp),
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email)
         )
         TextField(
             value = alamat,
             onValueChange = {alamat = it},
             label = {
-                Text(text = "alamat")
+                Text(text = "Alamat")
             },
             placeholder = {
-                Text(text = "isi alamat anda")
+                Text(text = "Isi Alamat Anda")
             },
-            modifier = modifier.fillMaxWidth().padding(5.dp)
+            modifier = Modifier.fillMaxWidth().padding(5.dp)
         )
         TextField(
             value = notelepon,
             onValueChange = {notelepon = it},
             label = {
-                Text(text = "notelepon")
+                Text(text = "No.Telepon")
             },
             placeholder = {
-                Text(text = "isi notelepon anda")
+                Text(text = "Isi No.Telepon Anda")
             },
-            modifier = modifier.fillMaxWidth().padding(5.dp),
+            modifier = Modifier.fillMaxWidth().padding(5.dp),
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
         )
         Button(onClick = {
-            confNama = nama
-            confEmail = email
-            confAlamat = alamat
-            confNotelepon = notelepon
-            confGender = gender
+            confirmasiNama = nama
+            confirmasiEmail = email
+            confirmasiAlamat = alamat
+            confirmasiNotelepon = notelepon
+            confirmasiGender = gender
         }) {
             Text(text = "Simpan")
         }
         TampilData(
             param = "nama",
-            argu = confNama
+            argu = confirmasiNama
         )
         TampilData(
             param = "email",
-            argu = confEmail
+            argu = confirmasiEmail
         )
         TampilData(
             param = "alamat",
-            argu = confAlamat
+            argu = confirmasiAlamat
         )
         TampilData(
             param = "notelepon",
-            argu = confNotelepon
+            argu = confirmasiNotelepon
         )
         TampilData(
             param = "gender",
-            argu = confGender
+            argu = confirmasiGender
         )
     }
 
